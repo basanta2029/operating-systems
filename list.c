@@ -116,19 +116,19 @@ void list_add_to_front(list_t *l, elem value) {
 
 // Add a new element at a specific index
 void list_add_at_index(list_t *l, elem value, int index) {
-    if (index < 0 || index > list_length(l)) {
+    if (index < 1 || index > list_length(l) + 1) {
         printf("Index %d out of bounds. Cannot add.\n", index);
         return;
     }
 
-    if (index == 0) {
+    if (index == 1) {  // Add at the front if index is 1
         list_add_to_front(l, value);
         return;
     }
 
     node_t *cur_node = getNode(value);
     node_t *current = l->head;
-    int current_index = 0;
+    int current_index = 1;  // Start index at 1
 
     while (current != NULL && current_index < index - 1) {
         current = current->next;
@@ -183,17 +183,17 @@ elem list_remove_from_front(list_t *l) {
 
 // Remove and return an element at a specific index
 elem list_remove_at_index(list_t *l, int index) {
-    if (l == NULL || l->head == NULL || index < 0 || index >= list_length(l)) {
+    if (l == NULL || l->head == NULL || index < 1 || index > list_length(l)) {
         printf("Invalid index or no next node at index: %d\n", index);
         return -1;
     }
 
-    if (index == 0) {
+    if (index == 1) {  // If index is 1, remove from front
         return list_remove_from_front(l);
     }
 
     node_t *current = l->head;
-    int current_index = 0;
+    int current_index = 1;  // Start index at 1
 
     while (current != NULL && current_index < index - 1) {
         current = current->next;
@@ -212,15 +212,23 @@ elem list_remove_at_index(list_t *l, int index) {
 
     return value;
 }
+
+    node_t *node_to_remove = current->next;
+    elem value = node_to_remove->value;
+    current->next = node_to_remove->next;
+    free(node_to_remove);
+
+    return value;
+}
 // Get the element at a specific index
 elem list_get_elem_at(list_t *l, int index) {
-    if (l == NULL || index < 0) {
+    if (l == NULL || index < 1 || index > list_length(l)) {
         printf("Invalid index: %d\n", index);
         return -1;
     }
 
     node_t *current = l->head;
-    int current_index = 0;
+    int current_index = 1;  // Start index at 1
 
     while (current != NULL) {
         if (current_index == index) {
@@ -230,7 +238,7 @@ elem list_get_elem_at(list_t *l, int index) {
         current_index++;
     }
 
-    printf("Index out of bounds: %d\n", index);  // Debugging output for invalid index
+    printf("Index out of bounds: %d\n", index);
     return -1;
 }
 // Get the index of a specific value in the list
