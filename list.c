@@ -212,6 +212,14 @@ elem list_remove_at_index(list_t *l, int index) {
 
     return value;
 }
+
+    node_t *node_to_remove = current->next;
+    elem value = node_to_remove->value;
+    current->next = node_to_remove->next;
+    free(node_to_remove);
+
+    return value;
+}
 // Get the element at a specific index
 elem list_get_elem_at(list_t *l, int index) {
     if (l == NULL || index < 1 || index > list_length(l)) {
