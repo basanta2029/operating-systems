@@ -5,5 +5,6 @@ The shell displays the current working directory as the prompt and supports seve
 For external commands, the shell uses fork () to create child processes and execvp() to execute the commands. 
 If the command is run in the background by appending &, the shell doesn’t wait for it to finish and allows other commands to be run concurrently. 
 The shell also handles SIGINT (triggered by pressing Ctrl+C) to ensure that the shell doesn’t terminate, but rather returns control to the prompt.
-Additionally, the shell can terminate processes that run for more than 10 seconds by using a timer. I/O redirection is supported for both input and output, using the > and < operators, and piping is also implemented, allowing the output of one command to serve as the input for another. 
+Additionally, the shell can terminate processes that run for more than 10 seconds by using a timer. 
+I/O redirection is supported for both input and output, using the > and < operators, and piping is also implemented, allowing the output of one command to serve as the input for another. 
 Overall, this project was aimed at creating a basic but functional shell that mimics some of the key behaviors of traditional Unix shells.
