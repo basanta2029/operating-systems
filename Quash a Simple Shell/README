@@ -1,5 +1,5 @@
 I am Basanta Baral, a junior majoring in Computer Science at Howard University.
-This project, named Quash, is a simple shell program written in C that mimics the behavior of common Unix shells like bash and sh. 
+This project, named Quash, is a simple shell program written in C++ that mimics the behavior of common Unix shells like bash and sh. 
 I worked on this project alone, and my goal was to implement core-shell functionalities such as process forking, command execution, signal handling, and input/output redirection.
 The shell displays the current working directory as the prompt and supports several built-in commands including cd (to change directories), pwd (to print the current directory), echo (to display messages or environment variables), env (to display environment variables), setenv (to set environment variables), and exit (to exit the shell). 
 For external commands, the shell uses fork () to create child processes and execvp() to execute the commands. 
