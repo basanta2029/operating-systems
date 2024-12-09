@@ -1,6 +1,6 @@
 Group members:
-Manoj Nath Yogi
-Siddhartha Gautam
+Manoj Nath Yogi,
+Siddhartha Gautam,
 Basanta Baral
 
 
